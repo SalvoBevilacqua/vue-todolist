@@ -13,9 +13,38 @@
     </head>
 
     <body>
+        <div id="app">
+            <div class="container">
+                <ul class="list-group my-5 w-50">
+                    <li v-for="(item, index) in arrayTodo" class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ item }}
+                        <span @click="removeElementFromArray(index)" class="badge bg-primary rounded-pill pointer">X</span>
+                    </li>
+                </ul>
 
+                <div class="input-group w-50">
+                    <button class="btn btn-outline-secondary" @click="AddElementToArray(toDoElement)" type="button" id="button-addon1">Inserisci</button>
+                    <input type="text" v-model="toDoElement" @keyup.enter="AddElementToArray(toDoElement)" class="form-control" placeholder="Scrivi cosa inserire alla lista" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                </div>
 
+                <!-- BONUS -->
+                <p class="h1 my-5">Bonus con Object</p>
 
+                <ul class="list-group mb-5 w-50">
+                    <li v-for="(item, index) in objectTodo" class="list-group-item d-flex justify-content-between align-items-center" :class="{ 'text-decoration-line-through': item.done }" @click="invertDone(index)">
+                        {{ item.text }}
+                        <span @click="removeElementFromObject(index)" class="badge bg-primary rounded-pill pointer">X</span>
+                    </li>
+                </ul>
+
+                <div class="input-group w-50">
+                    <button class="btn btn-outline-secondary" @click="addElementToObject(toDoElementForObject)" type="button" id="button-addon1">Inserisci</button>
+                    <input type="text" v-model="toDoElementForObject" @keyup.enter="addElementToObject(toDoElementForObject)" class="form-control" placeholder="Scrivi cosa inserire alla lista" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                </div>
+
+            </div>
+        </div>
+        
 	<script src="script.js"></script>
     </body>
 </html>
