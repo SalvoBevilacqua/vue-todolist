@@ -18,7 +18,7 @@
                 <ul class="list-group my-5 w-50">
                     <li v-for="(item, index) in arrayTodo" class="list-group-item d-flex justify-content-between align-items-center">
                         {{ item }}
-                        <span @click="removeElementFromArray(index)" class="badge bg-primary rounded-pill pointer">X</span>
+                        <span @click.stop="removeElementFromArray(index)" class="badge bg-primary rounded-pill pointer">X</span>
                     </li>
                 </ul>
 
@@ -33,7 +33,7 @@
                 <ul class="list-group mb-5 w-50">
                     <li v-for="(item, index) in objectTodo" class="list-group-item d-flex justify-content-between align-items-center" :class="{ 'text-decoration-line-through': item.done }" @click="invertDone(index)">
                         {{ item.text }}
-                        <span @click="removeElementFromObject(index)" class="badge bg-primary rounded-pill pointer">X</span>
+                        <span @click.stop="removeElementFromObject(index)" class="badge bg-primary rounded-pill pointer">X</span>
                     </li>
                 </ul>
 

@@ -3,6 +3,8 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            toDoElement: "",
+            toDoElementForObject: "",
             arrayTodo: ["fare la spesa", "giocare a carte", "comprare la nutella"],
             objectTodo: [
             {
@@ -28,7 +30,9 @@ createApp({
             this.arrayTodo.splice(index, 1);
         },
         AddElementToArray: function(element) {
-            this.arrayTodo.push(element);
+            if (element.length != 0) {
+                this.arrayTodo.push(element);
+            }            
         },
         removeElementFromObject: function(index) {
             this.objectTodo.splice(index, 1);
